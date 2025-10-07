@@ -29,5 +29,13 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("which of the following numbers is the largest")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const largest = Math.max(...numbers.map(Number));
+      return largest.toString();
+    }
+  }
+
   return "";
 }
